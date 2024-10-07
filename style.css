@@ -149,7 +149,7 @@ body {
 
 .prep__title {
   color: var(--clr-rose-800);
-  
+
   font-size: 1.25rem;
   font-weight: var(--fw-semibold);
   font-family: "Outfit";
@@ -158,6 +158,29 @@ body {
 }
 
 .prep__list {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.prep__list--step {
+  position: relative;
+
+  line-height: 1.5rem;
+
+  margin-bottom: 0.5em;
+  margin-inline: 2.5em;
+}
+
+.prep__list--step::before {
+  position: absolute;
+  color: var(--clr-rose-800);
+  font-weight: var(--fw-bold);
+
+  content: "\2022";
+  left: -2em;
+}
+
+/* .prep__list {
   list-style: disc;
 }
 
@@ -174,7 +197,7 @@ body {
 
 .prep--strong {
   margin-left: 1.25rem;
-}
+} */
 
 .ingredient {
   border-bottom: 1px solid var(--clr-stone-150);
@@ -182,7 +205,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.ingredient__list {
+/* .ingredient__list {
   list-style: square inside none;
 
   margin-bottom: 1.5rem;
@@ -193,14 +216,33 @@ body {
   margin-bottom: .75rem;
 }
 
-.list--spacer {
-  margin-left: 1.2rem;
-}
-
 .ingredient__list--item::marker {
   color: var(--clr-brown-800);
 
   font-size: 0.70rem;
+} */
+
+.ingredient__list {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.ingredient__list--item {
+  position: relative;
+
+  line-height: 1.5rem;
+
+  margin-bottom: 0.5em;
+  margin-inline: 2em;
+}
+
+.ingredient__list--item::before {
+  position: absolute;
+  color: var(--clr-brown-800);
+  font-weight: var(--fw-bold);
+
+  content: "\25AA";
+  left: -1.6em;
 }
 
 .instruct {
@@ -209,6 +251,26 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/*
+
+Leaving this old code in here for reference
+I am disappointed to find out that you truly cannot add space
+between the marker and the list item uniformly... at least currently
+
+*/
+
+/* .instruct__list {
+  list-style: decimal;
+  list-style-position: inside;
+
+  margin-bottom: 1rem;
+}
+
+.instruct__list--item::marker {
+  color: var(--clr-brown-800);
+  font: normal 700 1rem/1.5 "Outfit";
+} */
+
 .instruct__list {
   counter-reset: item;
   margin-left: 0;
@@ -216,16 +278,103 @@ body {
 }
 
 .instruct__list--item {
-  /* margin-bottom: 0.5em;
-  margin-left: 2em; */
+  position: relative;
+
+  line-height: 1.5rem;
+
+  margin-bottom: 0.5em;
+  margin-inline: 2em;
 }
 
 .instruct__list--item::before {
-  color: var(--clr-brown-800); 
+  position: absolute;
+  color: var(--clr-brown-800);
   font-weight: var(--fw-bold);
 
   content: counter(item) ". ";
   counter-increment: item;
-  margin-left: -1.5em;
+  left: -1.6em;
+}
 
+.marker-spacing {
+  position: relative;
+  left: 1rem;
+}
+
+.list-end-spacing {
+  margin-bottom: 2rem;
+}
+
+.nutrition {
+  margin-bottom: 2rem;
+}
+
+.nutrition__content {
+  margin-bottom: 1.5rem;
+}
+
+.nutrition__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nutrition__table--row {
+  border-bottom: 1px solid var(--clr-stone-150);
+}
+
+.last-row {
+  border-bottom: none;
+
+}
+
+.nutrition__table--label,
+.nutrition__label--value {
+  padding: 0.75rem 0;
+  width: 50%;
+}
+
+.nutrition__table--label {
+  padding-left: 2rem;
+}
+
+.nutrition__table--value {
+  color: var(--clr-brown-800);
+
+  font-weight: var(--fw-bold);
+}
+
+/* .nutrition__table--label,
+.nutrition__table--value {
+  border-bottom: 1px solid var(--clr-stone-150);
+} */
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 1161px) {
+  .recipe-wrapper {
+    padding-inline: 2rem;
+  }
+
+  .wrapper {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+
+    margin-inline: auto;
+  }
+
+  .hero__image {
+    border-radius: 0;
+  }
+
+  .hero__title {
+    font-size: 2.3rem;
+  }
 }
